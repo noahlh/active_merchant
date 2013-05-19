@@ -374,8 +374,7 @@ module ActiveMerchant #:nodoc:
           when :void
             requires!(options[:transaction], :trans_id)
           when :refund
-            requires!(options[:transaction], :trans_id) &&
-              (
+            requires!(
                 (options[:transaction][:customer_profile_id] && options[:transaction][:customer_payment_profile_id]) ||
                 options[:transaction][:credit_card_number_masked] ||
                 (options[:transaction][:bank_routing_number_masked] && options[:transaction][:bank_account_number_masked])
