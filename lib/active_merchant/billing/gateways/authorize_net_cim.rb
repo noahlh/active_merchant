@@ -667,7 +667,7 @@ module ActiveMerchant #:nodoc:
                 tag_unless_blank(xml, 'creditCardNumberMasked', transaction[:credit_card_number_masked])
                 tag_unless_blank(xml, 'bankRoutingNumberMasked', transaction[:bank_routing_number_masked])
                 tag_unless_blank(xml, 'bankAccountNumberMasked', transaction[:bank_account_number_masked])
-                xml.tag!('transId', transaction[:trans_id])
+                xml.tag!('transId', transaction[:trans_id]) if transaction[:trans_id]
                 add_tax(xml, transaction[:tax]) if transaction[:tax]
                 add_duty(xml, transaction[:duty]) if transaction[:duty]
                 add_shipping(xml, transaction[:shipping]) if transaction[:shipping]
